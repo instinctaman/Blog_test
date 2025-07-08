@@ -212,25 +212,26 @@
             object-fit: cover;
             border-radius: 10px;
         }
+
         .image-overlay-full {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  width: 100%;
-  height: 100%;
-}
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+        }
 
-.equal-height-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
+        .equal-height-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
 
-.image-overlay-full:hover .equal-height-img {
-  transform: scale(1.05);
-  filter: brightness(50%);
-}
+        .image-overlay-full:hover .equal-height-img {
+            transform: scale(1.05);
+            filter: brightness(50%);
+        }
 
         .image-overlay-card {
             position: relative;
@@ -254,26 +255,29 @@
         }
 
         .overlay-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  height: 100%;
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  /* align-items: flex-start; */
-  opacity: 0;
-  background: rgba(0, 0, 0, 0.5); /* Optional soft dark background */
-  color: white;
-  transition: opacity 0.4s ease;
-}
-.image-overlay-full:hover .overlay-content {
-  opacity: 1;
-}
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            /* align-items: flex-start; */
+            opacity: 0;
+            background: rgba(0, 0, 0, 0.5);
+            /* Optional soft dark background */
+            color: white;
+            transition: opacity 0.4s ease;
+        }
+
+        .image-overlay-full:hover .overlay-content {
+            opacity: 1;
+        }
+
         .overlay-content h5 {
             color: #fff;
             font-size: 30px;
@@ -284,7 +288,14 @@
             color: #fff;
             font-size: 20px;
         }
-
+@media screen and (max-width:996px) {
+    .overlay-content h5{
+        font-size: 20px;
+    }
+    .overlay-content p{
+        font-size: 12px;
+    }
+}
         .cardSize {
             width: 300px;
         }
@@ -406,28 +417,42 @@
                                                     href="javascript:void(0);"
                                                     class="navigation__menu--item__link">About US</a>
                                                 <ul class="submenu sub__style dropdown-menu">
-                                                    <li class="dropdown-item"><a href="about_us">Who We Are</a></li>
                                                     <li class="dropdown-item"><a
-                                                            href="managing-director-message">Managing Director
+                                                            href="https://vocationalservices.in/vsiet_web/about_us">Who
+                                                            We Are</a></li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/managing-director-message">Managing
+                                                            Director
                                                             Message</a>
                                                     </li>
-                                                    <li class="dropdown-item"><a href="director-message">Director
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/director-message">Director
                                                             Message</a></li>
-                                                    <li class="dropdown-item"><a href="dean-message">Dean Message</a>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/dean-message">Dean
+                                                            Message</a>
                                                     </li>
                                                     <!--<li class="dropdown-item"><a href="#">Programme Highlights</a></li>-->
-                                                    <li class="dropdown-item"><a href="tie-ups">Accreditions &amp;
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/tie-ups">Accreditions
+                                                            &amp;
                                                             Tie-Ups</a></li>
-                                                    <li class="dropdown-item"><a href="faculty">Faculty &amp;
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/faculty">Faculty
+                                                            &amp;
                                                             Research</a></li>
-                                                    <li class="dropdown-item"><a href="award">Awards</a></li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/award">Awards</a>
+                                                    </li>
                                                     <li class="has-child has-arrow">
                                                         <a href="#">Advisory Board</a>
                                                         <ul class="sub__style">
                                                             <li><a class="mobile-menu-link"
-                                                                    href="academic-advisor">Academic Advisors </a></li>
+                                                                    href="https://vocationalservices.in/vsiet_web/academic-advisor">Academic
+                                                                    Advisors </a></li>
                                                             <li><a class="mobile-menu-link"
-                                                                    href="corporate-advisor">Corporate Advisors</a></li>
+                                                                    href="https://vocationalservices.in/vsiet_web/corporate-advisor">Corporate
+                                                                    Advisors</a></li>
 
                                                         </ul>
                                                     </li>
@@ -438,24 +463,32 @@
                                                 <ul class="submenu sub__style">
                                                     <!--<li class="dropdown-item"><a href="program-overview">Program Overview</a></li>-->
                                                     <!--<li class="dropdown-item"><a href="#">Programme Highlights </a></li>-->
-                                                    <li class="dropdown-item"><a href="btech">B.Tech</a></li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/btech">B.Tech</a>
+                                                    </li>
                                                     <!--<li class="dropdown-item"><a href="course-curriculum-btech">Curriculum Designs - B.Tech</a></li>-->
-                                                    <li class="dropdown-item"><a href="mba-program">MBA</a></li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/mba-program">MBA</a>
+                                                    </li>
                                                     <!--<li class="dropdown-item"><a href="mba-course-structure">Curriculum Designs- MBA</a></li>-->
                                                     <li class="has-child has-arrow">
                                                         <a href="#">Curriculum Designs</a>
                                                         <ul class="sub__style">
                                                             <li><a class="mobile-menu-link"
-                                                                    href="course-curriculum-btech">Curriculum Designs -
+                                                                    href="https://vocationalservices.in/vsiet_web/course-curriculum-btech">Curriculum
+                                                                    Designs -
                                                                     B.Tech</a></li>
                                                             <li><a class="mobile-menu-link"
-                                                                    href="mba-course-structure">Curriculum Designs-
+                                                                    href="https://vocationalservices.in/vsiet_web/mba-course-structure">Curriculum
+                                                                    Designs-
                                                                     MBA</a>
                                                             </li>
 
                                                         </ul>
                                                     </li>
-                                                    <li class="dropdown-item"><a href="pedagogy">Pedagogy</a></li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/pedagogy">Pedagogy</a>
+                                                    </li>
                                                     <!--<li class="dropdown-item"><a href="alumni.html">alumni</a></li>-->
                                                     <!--<li class="dropdown-item"><a href="program-single.html">Program Single</a></li>-->
                                                     <!--<li class="dropdown-item"><a href="department-details.html">Department Details</a></li>-->
@@ -466,12 +499,17 @@
                                                     class="navigation__menu--item__link">Admission</a>
                                                 <ul class="submenu sub__style">
                                                     <li class="dropdown-item"><a
-                                                            href="eligibility-admission-process">Eligibility &amp;
+                                                            href="https://vocationalservices.in/vsiet_web/eligibility-admission-process">Eligibility
+                                                            &amp;
                                                             Admission
                                                             Process</a></li>
-                                                    <li class="dropdown-item"><a href="fee-scholarships">Fee &amp;
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/fee-scholarships">Fee
+                                                            &amp;
                                                             Scholarship</a></li>
-                                                    <li class="dropdown-item"><a href="faq"> F.A.Q's</a></li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/faq">
+                                                            F.A.Q's</a></li>
                                                     <li class="dropdown-item"><a href="#">Apply Online</a></li>
                                                 </ul>
                                             </li>
@@ -499,10 +537,13 @@
                                             <li class="navigation__menu--item has-child has-arrow"><a href="#"
                                                     class="navigation__menu--item__link">Placement</a>
                                                 <ul class="submenu sub__style">
-                                                    <li class="dropdown-item"><a href="placement-process">Placement
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/placement-process">Placement
                                                             Process</a></li>
                                                     <!--<li class="dropdown-item"><a href="#">Placement Opportunity Assurance</a></li>-->
-                                                    <li class="dropdown-item"><a href="top-recruiter">Companies Visited
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/top-recruiter">Companies
+                                                            Visited
                                                             for Placement</a></li>
                                                     <!--<li class="dropdown-item"><a href="#">Placement @VSITE</a></li>-->
                                                     <!--<li class="dropdown-item"><a href="#">Corporate Connect</a></li>-->
@@ -512,39 +553,67 @@
                                             <li class="navigation__menu--item has-child has-arrow"><a href="#"
                                                     class="navigation__menu--item__link">Infra</a>
                                                 <ul class="submenu sub__style">
-                                                    <li class="dropdown-item"><a href="classroom">Classroom</a></li>
-                                                    <li class="dropdown-item"><a href="library">Library</a></li>
-                                                    <li class="dropdown-item"><a href="computer-lab">Computer Lab</a>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/classroom">Classroom</a>
+                                                    </li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/library">Library</a>
+                                                    </li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/computer-lab">Computer
+                                                            Lab</a>
                                                     </li>
                                                     <!--<li class="dropdown-item"><a href="#">Language Lab</a></li>-->
-                                                    <li class="dropdown-item"><a href="science-lab">Science Lab</a></li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/science-lab">Science
+                                                            Lab</a></li>
                                                     <!--<li class="dropdown-item"><a href="#">Conference Hall</a></li>-->
-                                                    <li class="dropdown-item"><a href="auditorium">Auditorium</a></li>
-                                                    <li class="dropdown-item"><a href="hostel">Hostel</a></li>
-                                                    <li class="dropdown-item"><a href="sports">Sports</a></li>
-                                                    <li class="dropdown-item"><a href="health">Health and Welness</a>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/auditorium">Auditorium</a>
                                                     </li>
-                                                    <li class="dropdown-item"><a href="transport">Transport Facility</a>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/hostel">Hostel</a>
                                                     </li>
-                                                    <li class="dropdown-item"><a href="campus">Campus</a></li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/sports">Sports</a>
+                                                    </li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/health">Health
+                                                            and Welness</a>
+                                                    </li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/transport">Transport
+                                                            Facility</a>
+                                                    </li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/campus">Campus</a>
+                                                    </li>
                                                 </ul>
                                             </li>
                                             <li class="navigation__menu--item has-child has-arrow"><a href="#"
                                                     class="navigation__menu--item__link">Life @VSIET</a>
                                                 <ul class="submenu sub__style">
-                                                    <li class="dropdown-item"><a href="events">Events</a></li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/events">Events</a>
+                                                    </li>
                                                     <!--<li class="dropdown-item"><a href="#">Placement Opportunity Assurance</a></li>-->
-                                                    <li class="dropdown-item"><a href="clubs">Clubs</a></li>
-                                                    <li class="dropdown-item"><a href="incubation-cell">Incubation
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/clubs">Clubs</a>
+                                                    </li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/incubation-cell">Incubation
                                                             Cell</a></li>
-                                                    <li class="dropdown-item"><a href="hackathon">Hackathon</a></li>
+                                                    <li class="dropdown-item"><a
+                                                            href="https://vocationalservices.in/vsiet_web/hackathon">Hackathon</a>
+                                                    </li>
                                                     <!--<li class="dropdown-item"><a href="#">Corporate Connect</a></li>-->
                                                     <!--<li class="dropdown-item"><a href="#">Corporate Assurance Partners</a></li>-->
                                                 </ul>
                                             </li>
 
                                             <!--<li class="navigation__menu--item"><a href="contact.html" class="navigation__menu--item__link" style="margin-right: -20px;">Life @VSIET</a></li>-->
-                                            <li class="navigation__menu--item"><a href="contact_us"
+                                            <li class="navigation__menu--item"><a
+                                                    href="https://vocationalservices.in/vsiet_web/contact_us"
                                                     class="navigation__menu--item__link">Contact</a></li>
                                         </ul>
                                     </nav>
@@ -781,7 +850,9 @@
                         <div class="overlay-content">
                             <i class="fas fa-user"></i>
                             <h5>The Rise of AI in Modern Education</h5>
-                            <p>Artificial Intelligence is reshaping how students learn and how teachers teach. From personalized tutoring systems to smart grading algorithms, VSIET is integrating AI tools into its curriculum to offer real-time insights and enhance classroom experiences.</p>
+                            <p>Artificial Intelligence is reshaping how students learn and how teachers teach. From
+                                personalized tutoring systems to smart grading algorithms, VSIET is integrating AI tools
+                                into its curriculum to offer real-time insights and enhance classroom experiences.</p>
                         </div>
                     </div>
                 </div>
@@ -947,11 +1018,14 @@
                 <h2 class="text-center">📰 News</h2>
                 <div class="col-lg-12">
                     <div class="image-overlay-full h-100" data-aos="fade-up">
-                        <img src="assets/images/blogs/news-blog2.jpg" alt="Riya Story" class="equal-height-img" style="height: 300px;">
+                        <img src="assets/images/blogs/news-blog2.jpg" alt="Riya Story" class="equal-height-img"
+                            style="height: 300px;">
                         <div class="overlay-content">
                             <i class="fas fa-user"></i>
                             <h5>VSIET Faculty Awarded by AICTE</h5>
-                            <p>Dr. Renu Sharma, Head of Computer Science at VSIET, was recently honored with the AICTE National Teaching Excellence Award 2025 for her innovative contribution to hybrid teaching methods.</p>
+                            <p>Dr. Renu Sharma, Head of Computer Science at VSIET, was recently honored with the AICTE
+                                National Teaching Excellence Award 2025 for her innovative contribution to hybrid
+                                teaching methods.</p>
                         </div>
                     </div>
                 </div>
@@ -1054,7 +1128,9 @@
                         <div class="p-4 d-flex flex-column justify-content-center">
                             <i class="fas fa-rocket mb-2 text-danger" style="font-size: 24px;"></i>
                             <h5>From Rural Roots to Google: Priya's Success Story</h5>
-                            <p class="mb-0">Priya Yadav, a VSIET alumna from a small town in UP, overcame financial challenges, studied day and night, and landed a job at Google as a software engineer. Her story continues to inspire many across the campus.</p>
+                            <p class="mb-0">Priya Yadav, a VSIET alumna from a small town in UP, overcame financial
+                                challenges, studied day and night, and landed a job at Google as a software engineer.
+                                Her story continues to inspire many across the campus.</p>
                         </div>
                     </div>
                 </div>
