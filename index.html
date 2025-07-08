@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Explore VSIET's latest blog articles, news, updates, and student stories.">
+    <meta name="keywords" content="VSIET, Blog, News, Engineering, Student Stories, Updates">
+    <meta name="author" content="VSIET">
+    <meta property="og:title" content="VSIET Blog">
+    <meta property="og:image" content="link-to-thumbnail.jpg">
+    <meta property="og:description" content="Explore student success stories, campus news, and more.">
+
+    <title>Multi-Section Blog Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
+
+    <!-- swiper Css 10.2.0 -->
+    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
+    <!-- Bootstrap 5.0.2 -->
+    <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
+    <!-- metismenu scss -->
+    <link rel="stylesheet" href="assets/css/vendor/metismenu.css">
+    <!-- nice select js -->
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.css">
+    <!-- custom style css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/Responsive1440.css">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f8f9fa;
+        }
+
+        .hero {
+            background: #007bff;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            /* Important to crop nicely */
+        }
+
+        .blog-content {
+            padding: 15px;
+            flex-grow: 1;
+            /* Makes text area fill space evenly */
+        }
+
+        .blog-content h5 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .blog-content p {
+            font-size: 14px;
+        }
+
+        /* .blog-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.2s;
+      height: 100%;
+    } */
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-card i {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #890C25;
+        }
+
+        .sidebar {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<link rel="stylesheet" type="text/css" href="assets/css/adons.css">
+
+<body>
+    <style>
+        .header.v__3 .header__wrapper {
+            margin-top: 0;
+            padding: 0 50px;
+        }
+
+        #followBtn {
+            position: fixed;
+            top: -25px;
+            left: -100px;
+            /* padding: 10px 20px; */
+            z-index: 999;
+            /*pointer-events: none;*/
+            /* prevents button from blocking clicks */
+            transition: transform 0.1s ease;
+        }
+
+        .shake {
+            animation: shake 0.3s infinite;
+        }
+    </style>
+    <!-- <a class="rts-theme-btn btn-arrow" href="https://vocationalservices.in/vsiet_web/eligibility-admission-process"
+        id="followBtn">Apply Now
+        <span><i class="fa-regular fa-arrow-right"></i></span>
+    </a> -->
+
+    <script>
+        const button = document.getElementById('followBtn');
+
+        let isScrolling = false;
+        let mouseX = 0, mouseY = 0;
+        let currentX = 0, currentY = 0;
+
+        // Track mouse position
+        document.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Detect scroll and reset flag after inactivity
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            isScrolling = true;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+            }, 150); // delay before stopping movement
+        });
+
+        // Smooth follow using lerping
+        function lerp(start, end, factor) {
+            return start + (end - start) * factor;
+        }
+
+        function animate() {
+            if (isScrolling) {
+                currentX = lerp(currentX, mouseX, 0.1);
+                currentY = lerp(currentY, mouseY, 0.1);
+                button.style.transform = `translate(${currentX}px, ${currentY}px)`;
+            }
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+
+    <style>
+        img {
+            width: 100%;
+            height: -webkit-fill-available;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .image-overlay-full {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.equal-height-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-overlay-full:hover .equal-height-img {
+  transform: scale(1.05);
+  filter: brightness(50%);
+}
+
+        .image-overlay-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .overlay-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(60%);
+            /* Darkens the image */
+            transition: transform 0.3s ease;
+        }
+
+        .image-overlay-card:hover .overlay-image {
+            transform: scale(1.05);
+        }
+
+        .overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  /* align-items: flex-start; */
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5); /* Optional soft dark background */
+  color: white;
+  transition: opacity 0.4s ease;
+}
+.image-overlay-full:hover .overlay-content {
+  opacity: 1;
+}
+        .overlay-content h5 {
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .overlay-content p {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .cardSize {
+            width: 300px;
+        }
+
+        .link-81 {
+            color: #192F59;
+            /*font-size: 20px;*/
+            text-decoration: none;
+            padding: 5px 15px;
+            /*margin: 0 5px;*/
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease-in-out;
+            border: solid 1px #192F59;
+        }
+
+        .link-81::before {
+            content: "";
+            position: absolute;
+            background: #192F59;
+            width: 0;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .link-81:hover {
+            color: #fff;
+        }
+
+        .link-81:hover::before {
+            width: 100%;
+        }
+
+        .link-81:hover {
+            z-index: 1;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/adons.css">
+
+    <!-- header area start -->
+    <div class="header header__sticky v__3" style="background-color: #890C25;">
+        <div class="container-fluid header-top">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="header__wrapper merah_w">
+
+                        <div class="col-lg-6 col-md-6 col-xs-12 meraL_h">
+                            <div class="d-flex align-items-center meraL_h2">
+                                <div class="header-right float-lg-right">
+                                    <!-- <a href="#">Important Notice</a> -->
+                                    <a href="https://vocationalservices.in/vsiet_web/events">Events</a>
+                                    <a href="#">Carrer</a>
+                                    <a href="#">Grievance</a>
+                                    <a href="https://vocationalservices.in/vsiet_web/contact_us">Contact us</a>
+                                </div>
+                                <!-- <form action="#" class="header-form ml-3">
+                            <input type="text" class="form-control" placeholder="search">
+                            <i class="fa fa-search"></i>
+                    </form>  -->
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-xs-12 meraR_h">
+                            <div class="header__social__link col text-light float-end text-end meraR_h2">
+
+                                <a href="callto:+91-9311857965" target="_blank"><i class="fa fa-phone"
+                                        aria-hidden="true"></i>
+                                    +91-9311857965</a>
+                                <a href="https://maps.app.goo.gl/EPYsGHyAQHo81Fwm8" target="_blank" rel="noopener"><i
+                                        class="fa fa-map-marker" aria-hidden="true"></i> View Map</a>
+
+                                <!--<a href="#"><i class="fa-brands fa-linkedin"></i></a>-->
+                                <!--<a href="https://www.youtube.com/@vsiet_grnoida" target="_blank"><i class="fa-brands fa-youtube"></i></a>-->
+                                <!--<a href="https://x.com/vsiet_grnoida" target="_blank"><i class="fa-brands fa-twitter"  style="color: #fff;"></i></a>-->
+                                <!-- <a href="#"><i class="fa fa-map-marker"  style="color: #fff;"></i></a> -->
+                            </div>
+
+                            <!--       <div class="header-socials social-links d-xl-block float-lg-right header-right" style="color: #fff;">
+                            <a href="#"><i class="fab fa-facebook-f" style="color: #fff;"></i></a>
+                            <a href="#"><i class="fab fa-twitter"  style="color: #fff;"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"  style="color: #fff;"></i></a>
+                            <a href="#"><i class="fab fa-instagram"  style="color: #fff;"></i></a>
+                            <a href="#"><i class="fab fa-youtube"  style="color: #fff;"></i></a>
+                            <a href="#"><i class="fa fa-map-marker"  style="color: #fff;"></i></a>
+                            <a href="#"><i class="fa fa-phone"  style="color: #fff;"></i> <span style="color: #fff;"> +91-9811000000</span></a>
+                       <a href="#"><i class="fab fa-mail"  style="color: #fff;"></i> <span style="color: #fff;"> +91-9811000000</span></a>
+                            
+                        </div> -->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header header__sticky v__3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="header__wrapper">
+                        <div class="header__center__content"
+                            style="display: flex; justify-content: space-between; align-items: center;">
+                            <!-- menu left side -->
+                            <div class="header__menu">
+                                <div class="navigation">
+                                    <nav class="navigation__menu">
+                                        <ul>
+                                            <li class="navigation__menu--item "><a
+                                                    href="https://vocationalservices.in/vsiet_web/"
+                                                    class="navigation__menu--item__link"
+                                                    style="margin-right: -20px;">Home</a></li>
+                                            <li class="navigation__menu--item has-child has-arrow"><a
+                                                    href="javascript:void(0);"
+                                                    class="navigation__menu--item__link">About US</a>
+                                                <ul class="submenu sub__style dropdown-menu">
+                                                    <li class="dropdown-item"><a href="about_us">Who We Are</a></li>
+                                                    <li class="dropdown-item"><a
+                                                            href="managing-director-message">Managing Director
+                                                            Message</a>
+                                                    </li>
+                                                    <li class="dropdown-item"><a href="director-message">Director
+                                                            Message</a></li>
+                                                    <li class="dropdown-item"><a href="dean-message">Dean Message</a>
+                                                    </li>
+                                                    <!--<li class="dropdown-item"><a href="#">Programme Highlights</a></li>-->
+                                                    <li class="dropdown-item"><a href="tie-ups">Accreditions &amp;
+                                                            Tie-Ups</a></li>
+                                                    <li class="dropdown-item"><a href="faculty">Faculty &amp;
+                                                            Research</a></li>
+                                                    <li class="dropdown-item"><a href="award">Awards</a></li>
+                                                    <li class="has-child has-arrow">
+                                                        <a href="#">Advisory Board</a>
+                                                        <ul class="sub__style">
+                                                            <li><a class="mobile-menu-link"
+                                                                    href="academic-advisor">Academic Advisors </a></li>
+                                                            <li><a class="mobile-menu-link"
+                                                                    href="corporate-advisor">Corporate Advisors</a></li>
+
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="navigation__menu--item has-child has-arrow"><a href="#"
+                                                    class="navigation__menu--item__link">Academics</a>
+                                                <ul class="submenu sub__style">
+                                                    <!--<li class="dropdown-item"><a href="program-overview">Program Overview</a></li>-->
+                                                    <!--<li class="dropdown-item"><a href="#">Programme Highlights </a></li>-->
+                                                    <li class="dropdown-item"><a href="btech">B.Tech</a></li>
+                                                    <!--<li class="dropdown-item"><a href="course-curriculum-btech">Curriculum Designs - B.Tech</a></li>-->
+                                                    <li class="dropdown-item"><a href="mba-program">MBA</a></li>
+                                                    <!--<li class="dropdown-item"><a href="mba-course-structure">Curriculum Designs- MBA</a></li>-->
+                                                    <li class="has-child has-arrow">
+                                                        <a href="#">Curriculum Designs</a>
+                                                        <ul class="sub__style">
+                                                            <li><a class="mobile-menu-link"
+                                                                    href="course-curriculum-btech">Curriculum Designs -
+                                                                    B.Tech</a></li>
+                                                            <li><a class="mobile-menu-link"
+                                                                    href="mba-course-structure">Curriculum Designs-
+                                                                    MBA</a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </li>
+                                                    <li class="dropdown-item"><a href="pedagogy">Pedagogy</a></li>
+                                                    <!--<li class="dropdown-item"><a href="alumni.html">alumni</a></li>-->
+                                                    <!--<li class="dropdown-item"><a href="program-single.html">Program Single</a></li>-->
+                                                    <!--<li class="dropdown-item"><a href="department-details.html">Department Details</a></li>-->
+                                                </ul>
+                                            </li>
+                                            <li class="navigation__menu--item has-child has-arrow"><a
+                                                    href="javascript:void(0);"
+                                                    class="navigation__menu--item__link">Admission</a>
+                                                <ul class="submenu sub__style">
+                                                    <li class="dropdown-item"><a
+                                                            href="eligibility-admission-process">Eligibility &amp;
+                                                            Admission
+                                                            Process</a></li>
+                                                    <li class="dropdown-item"><a href="fee-scholarships">Fee &amp;
+                                                            Scholarship</a></li>
+                                                    <li class="dropdown-item"><a href="faq"> F.A.Q's</a></li>
+                                                    <li class="dropdown-item"><a href="#">Apply Online</a></li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- menu left side end -->
+                            <div class="header__logo">
+                                <a href="#" class="header__logo--link">
+                                    <img src="assets/images/logo/vsit_sq_png.png" alt="unipix" class="img_1">
+                                    <img src="https://vocationalservices.in/vsiet/assets/images/VSIT%20LOGO_PNG_new.png"
+                                        alt="VSIET" class="img-fluid img">
+                                    <!-- <img src="https://vocationalservices.in/vsiet/assets/images/VSIT%20LOGO_PNG_new.png" alt="unipix" > -->
+                                </a>
+                            </div>
+
+                            <!-- menu right side -->
+                            <div class="header__menu">
+                                <div class="navigation">
+                                    <nav class="navigation__menu">
+                                        <ul>
+                                            <li class="navigation__menu--item has-child has-arrow"><a href="#"
+                                                    class="navigation__menu--item__link">Placement</a>
+                                                <ul class="submenu sub__style">
+                                                    <li class="dropdown-item"><a href="placement-process">Placement
+                                                            Process</a></li>
+                                                    <!--<li class="dropdown-item"><a href="#">Placement Opportunity Assurance</a></li>-->
+                                                    <li class="dropdown-item"><a href="top-recruiter">Companies Visited
+                                                            for Placement</a></li>
+                                                    <!--<li class="dropdown-item"><a href="#">Placement @VSITE</a></li>-->
+                                                    <!--<li class="dropdown-item"><a href="#">Corporate Connect</a></li>-->
+                                                    <!--<li class="dropdown-item"><a href="#">Corporate Assurance Partners</a></li>-->
+                                                </ul>
+                                            </li>
+                                            <li class="navigation__menu--item has-child has-arrow"><a href="#"
+                                                    class="navigation__menu--item__link">Infra</a>
+                                                <ul class="submenu sub__style">
+                                                    <li class="dropdown-item"><a href="classroom">Classroom</a></li>
+                                                    <li class="dropdown-item"><a href="library">Library</a></li>
+                                                    <li class="dropdown-item"><a href="computer-lab">Computer Lab</a>
+                                                    </li>
+                                                    <!--<li class="dropdown-item"><a href="#">Language Lab</a></li>-->
+                                                    <li class="dropdown-item"><a href="science-lab">Science Lab</a></li>
+                                                    <!--<li class="dropdown-item"><a href="#">Conference Hall</a></li>-->
+                                                    <li class="dropdown-item"><a href="auditorium">Auditorium</a></li>
+                                                    <li class="dropdown-item"><a href="hostel">Hostel</a></li>
+                                                    <li class="dropdown-item"><a href="sports">Sports</a></li>
+                                                    <li class="dropdown-item"><a href="health">Health and Welness</a>
+                                                    </li>
+                                                    <li class="dropdown-item"><a href="transport">Transport Facility</a>
+                                                    </li>
+                                                    <li class="dropdown-item"><a href="campus">Campus</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="navigation__menu--item has-child has-arrow"><a href="#"
+                                                    class="navigation__menu--item__link">Life @VSIET</a>
+                                                <ul class="submenu sub__style">
+                                                    <li class="dropdown-item"><a href="events">Events</a></li>
+                                                    <!--<li class="dropdown-item"><a href="#">Placement Opportunity Assurance</a></li>-->
+                                                    <li class="dropdown-item"><a href="clubs">Clubs</a></li>
+                                                    <li class="dropdown-item"><a href="incubation-cell">Incubation
+                                                            Cell</a></li>
+                                                    <li class="dropdown-item"><a href="hackathon">Hackathon</a></li>
+                                                    <!--<li class="dropdown-item"><a href="#">Corporate Connect</a></li>-->
+                                                    <!--<li class="dropdown-item"><a href="#">Corporate Assurance Partners</a></li>-->
+                                                </ul>
+                                            </li>
+
+                                            <!--<li class="navigation__menu--item"><a href="contact.html" class="navigation__menu--item__link" style="margin-right: -20px;">Life @VSIET</a></li>-->
+                                            <li class="navigation__menu--item"><a href="contact_us"
+                                                    class="navigation__menu--item__link">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header__right">
+                            <div class="header__right--item" style="position: absolute;   left: 89%;     top: 26%;">
+                                <div id="menu-btn" class="menu__trigger line3" style=""><img
+                                        src="assets/images/icon/menu__bar.svg" alt="bar">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- header style two -->
+    <div id="side-bar" class="side-bar">
+        <button class="close-icon-menu"><i class="far fa-times"></i></button>
+        <!-- inner menu area desktop start -->
+        <div class="inner-main-wrapper-desk">
+            <div class="thumbnail">
+                <img src="assets/images/logo/vsit_sq_png.png" alt="VSIET">
+            </div>
+            <div class="inner-content">
+                <p class="disc">
+                    The Vikram Sarabhai Institute of Engineering &amp; Technology (VSIET) is more than just a college—it
+                    is a
+                    transformative educational hub known for innovation, excellence, and impact.
+                </p>
+                <!-- offcanvase banner -->
+                <div class="offcanvase__banner mt--50">
+                    <div class="offcanvase__banner--content">
+                        <img src="assets/images/program/mba_about.jpg" alt="offcanvase">
+                        <a href="#" class="rts-theme-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="offcanvase__info">
+                    <div class="offcanvase__info--content">
+                        <a href="callto:+91-9311857965"><i class="fa-thin fa-phone"></i> +91-9311857965</a>
+                        <a href="https://maps.app.goo.gl/EPYsGHyAQHo81Fwm8" target="_blank"><i
+                                class="fa-sharp fa-light fa-location-dot"></i> Plot No.- 6B/1, Knowledge Park-2, Greater
+                            Noida,
+                            G.B.Nagar, UP-201306 </a>
+                        <div class="offcanvase__info--content--social">
+                            <p class="title">Follow Us:</p>
+                            <div class="social__links">
+                                <a href="https://www.facebook.com/vsietgrnoida" target="_blank"><i
+                                        class="fa-brands fa-facebook"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="https://x.com/vsiet_grnoida" target="_blank"><i
+                                        class="fa-brands fa-x-twitter"></i></a>
+                                <a href="https://www.youtube.com/@vsiet_grnoida" target="_blank"><i
+                                        class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile menu area start -->
+        <div class="mobile-menu-main">
+            <nav class="nav-main mainmenu-nav mt--30">
+                <ul class="mainmenu metismenu" id="mobile-menu-active">
+
+                    <li class="">
+                        <a href="https://vocationalservices.in/vsiet_web/" class="main">Home</a>
+
+                    </li>
+
+                    <li class="has-droupdown">
+                        <a href="#" class="main">About Us</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="about_us">Who We Are</a></li>
+                            <li><a class="mobile-menu-link" href="managing-director-message">Managing Director's
+                                    Message</a></li>
+                            <li><a class="mobile-menu-link" href="director-message">Group Director's Message</a></li>
+                            <li><a class="mobile-menu-link" href="dean-message">Dean's Message</a></li>
+                            <!--<li><a class="mobile-menu-link" href="#">Programme Highlights</a></li>-->
+                            <li><a class="mobile-menu-link" href="tie-ups">Accreditions &amp; Tie-Ups</a></li>
+                            <li><a class="mobile-menu-link" href="faculty">Faculty &amp; Research</a></li>
+
+                            <li><a class="mobile-menu-link" href="award">Awards</a></li>
+                            <li><a class="mobile-menu-link" href="academic-advisor">Academic Advisors</a></li>
+                            <li><a class="mobile-menu-link" href="corporate-advisor">Corporate Advisors</a></li>
+
+
+
+
+
+
+                        </ul>
+                    </li>
+                    <li class="has-droupdown">
+                        <a href="#" class="main">Academics</a>
+                        <ul class="submenu mm-collapse">
+                            <!--<li><a class="mobile-menu-link" href="program-overview">Program Overview/a></li>-->
+                            <li><a class="mobile-menu-link" href="btech">B.Tech</a></li>
+                            <li><a class="mobile-menu-link" href="mba-program">MBA</a></li>
+
+                            <li><a class="mobile-menu-link" href="course-curriculum-btech">Curriculum Designs -
+                                    B.Tech</a></li>
+                            <li><a class="mobile-menu-link" href="mba-course-structure">Curriculum Designs - MBA</a>
+                            </li>
+                            <li><a class="mobile-menu-link" href="pedagogy">Pedagogy</a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li class="has-droupdown">
+                        <a href="#" class="main">Admission</a>
+                        <ul class="submenu mm-collapse">
+
+                            <li><a class="mobile-menu-link" href="eligibility-admission-process">Eligibility &amp;
+                                    Admission
+                                    Process</a></li>
+                            <li><a class="mobile-menu-link" href="fee-scholarships">Fee &amp; Scholarship</a></li>
+                            <!--<li><a class="mobile-menu-link" href="#">Educational Loan</a></li>-->
+                            <li><a class="mobile-menu-link" href="faq">FAQ's</a></li>
+                            <li><a class="mobile-menu-link" href="#">Apply Online</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-droupdown">
+                        <a href="#" class="main">Placement</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="placement-process">Placement Process</a></li>
+                            <!--<li><a class="mobile-menu-link" href="managing_director_message">Placement Opportunity Assurance</a></li>-->
+                            <li><a class="mobile-menu-link" href="top-recruiter">Companies Visited for Placement</a>
+                            </li>
+                            <!--<li><a class="mobile-menu-link" href="#">Placement @VSITE</a></li>-->
+                            <!--<li><a class="mobile-menu-link" href="#">Corporate Connect</a></li>-->
+                            <!--<li><a class="mobile-menu-link" href="#">Corporate Assurance Partners</a></li>-->
+
+                        </ul>
+                    </li>
+                    <li class="has-droupdown">
+                        <a href="#" class="main">Infrstructure</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="classroom">Classroom</a></li>
+                            <li><a class="mobile-menu-link" href="library">Library</a></li>
+                            <li><a class="mobile-menu-link" href="computer-lab">Computer Lab</a></li>
+                            <!--<li><a class="mobile-menu-link" href="#">Language Lab</a></li>-->
+                            <li><a class="mobile-menu-link" href="science-lab">Science Lab</a></li>
+                            <!--<li><a class="mobile-menu-link" href="#">Conference Hall</a></li>-->
+                            <li><a class="mobile-menu-link" href="auditorium">Auditorium</a></li>
+                            <!--<li><a class="mobile-menu-link" href="#">Incubation Center</a></li>-->
+                            <li><a class="mobile-menu-link" href="hostel">Hostel</a></li>
+                            <li><a class="mobile-menu-link" href="sports">Sports</a></li>
+                            <li><a class="mobile-menu-link" href="health">Health and Welness</a></li>
+                            <li><a class="mobile-menu-link" href="transport">Transport Facility</a></li>
+                            <li><a class="mobile-menu-link" href="campus">Campus</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-droupdown">
+                        <a href="#" class="main">Life @VSIET</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="events">Events</a></li>
+                            <!--<li><a class="mobile-menu-link" href="managing_director_message">Placement Opportunity Assurance</a></li>-->
+                            <li><a class="mobile-menu-link" href="clubs">Clubs</a></li>
+                            <li><a class="mobile-menu-link" href="incubation-cell">Incubation Cell</a></li>
+                            <li><a class="mobile-menu-link" href="hackathon">hackathon</a></li>
+                            <!--<li><a class="mobile-menu-link" href="#">Corporate Connect</a></li>-->
+                            <!--<li><a class="mobile-menu-link" href="#">Corporate Assurance Partners</a></li>-->
+
+                        </ul>
+                    </li>
+
+                    <!--<li>-->
+                    <!--    <a href="contact.html" class="main">Life @VSIET</a>-->
+                    <!--</li>-->
+                    <li>
+                        <a href="contact_us" class="main">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="offcanvase__info--content mt--30" style="color: #000 Important;">
+                <a href="callto:+91-9311857965"><span style="color: #000 Important;"><i class="fa-thin fa-phone"></i>
+                        +91-9311857965</span></a>
+                <a href="https://maps.app.goo.gl/EPYsGHyAQHo81Fwm8" target="_blank"><span
+                        style="color: #000 Important;"><i class="fa-sharp fa-light fa-location-dot"></i> Plot No.- 6B/1,
+                        Knowledge Park-2, Greater Noida, G.B.Nagar,
+                        UP-201306</span> </a>
+                <div class="offcanvase__info--content--social">
+                    <p class="title">Follow Us:</p>
+                    <!-- partial:index.partial.html -->
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/vsietgrnoida" target="_blank" title="facebook">
+                            <span style="color: #000 Important;"></span> <i class="fa fa-facebook-square"
+                                aria-hidden="true"></i>
+                        </a>
+                        <a href="https://x.com/vsiet_grnoida" target="_blank" title="twitter">
+                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" title="instagram">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" title="youtube">
+                            <i class="fa-brands fa-square-x-twitter" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="#" title="pinterest">
+                            <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+                        </a>
+
+                    </div>
+                    <!-- partial -->
+                </div>
+            </div>
+        </div>
+        <!-- mobile menu area end -->
+    </div>
+
+    <!-- Hero Section -->
+    <img src="assets/images/image-1-min-29.jpg" alt="" title="#slider-direction-1"
+        style="width: 100%; height: auto; object-fit: cover;" />
+
+    <!-- Main Content + Sidebar -->
+    <div class="container my-5">
+        <div class="sidebar">
+            <div class="row">
+
+                <!-- Sidebar -->
+                <h2 class="text-center">📚 Articles</h2>
+                <div class="col-lg-6">
+                    <div class="image-overlay-full h-100" data-aos="fade-up">
+                        <img src="assets/images/blogs/article-blog1.png" alt="Riya Story" class="equal-height-img">
+                        <div class="overlay-content">
+                            <i class="fas fa-user"></i>
+                            <h5>The Rise of AI in Modern Education</h5>
+                            <p>Artificial Intelligence is reshaping how students learn and how teachers teach. From personalized tutoring systems to smart grading algorithms, VSIET is integrating AI tools into its curriculum to offer real-time insights and enhance classroom experiences.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="blog-card" data-aos="fade-up">
+                                <img src="assets/images/blogs/article-blog2.jpg" alt="" class="blog-image">
+                                <div class="blog-content">
+                                    <i class="fas fa-code"></i>
+                                    <h5>Hybrid Learning: VSIET’s New Pedagogy for the Digital Era</h5>
+                                    <p>VSIET has recently integrated a cutting-edge hybrid learning model, blending
+                                        in-person classroom instruction with live-streamed lectures and interactive
+                                        online
+                                        modules. This empowers students to access high-quality coursework whether
+                                        they're on
+                                        campus or at home.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="blog-card" data-aos="fade-up">
+                                <img src="assets/images/blogs/article-blog3.jpg" alt="" class="blog-image">
+                                <div class="blog-content">
+                                    <i class="fas fa-desktop"></i>
+                                    <h5>Internship-Driven Innovation: From Classroom to Conference Room</h5>
+                                    <p>To equip students for evolving industry demands, VSIET launched a structured
+                                        internship pathway across top firms.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- https://picsum.photos/300?random=5-->
+                <!-- Main Blog Content -->
+                <div class="col-md-9">
+
+                    <!-- Articles Section -->
+                    <!-- <div class="section-title">📚 Articles</div>
+          <div class="row g-4 mb-5">
+            <div class="col-md-6">
+              <div class="blog-card" data-aos="fade-up">
+                <i class="fas fa-code"></i>
+                <h5>Learn JavaScript in 30 Days</h5>
+                <p>A practical roadmap for beginners to master JS in just one month.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="blog-card" data-aos="fade-up">
+                <i class="fas fa-desktop"></i>
+                <h5>Frontend vs Backend</h5>
+                <p>Understanding the key differences in roles and tech stacks.</p>
+              </div>
+            </div>
+          </div> -->
+
+                    <!-- Updates Section -->
+                    <!-- <div class="section-title">🔄 Updates</div>
+          <div class="row g-4 mb-5">
+            <div class="col-md-6">
+              <div class="blog-card" data-aos="fade-up">
+                <i class="fas fa-bolt"></i>
+                <h5>Website UI Improved</h5>
+                <p>We’ve updated our layout and made the site faster and cleaner.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="blog-card" data-aos="fade-up">
+                <i class="fas fa-calendar-check"></i>
+                <h5>New Weekly Workshop</h5>
+                <p>Join our free ReactJS sessions every Friday starting this month.</p>
+              </div>
+            </div>
+          </div> -->
+
+                    <!-- News Section -->
+                    <!-- <div class="section-title">📰 News</div>
+          <div class="row g-4 mb-5">
+            <div class="col-md-6">
+              <div class="blog-card" data-aos="fade-up">
+                <i class="fas fa-globe"></i>
+                <h5>CSS4 Spec Announced</h5>
+                <p>Upcoming features expected in the next generation of CSS.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="blog-card" data-aos="fade-up">
+                <i class="fas fa-graduation-cap"></i>
+                <h5>GitHub Copilot for Students</h5>
+                <p>Microsoft offers GitHub Copilot free for verified students worldwide.</p>
+              </div>
+            </div>
+          </div> -->
+
+                    <!-- Stories Section -->
+                    <!-- <div class="section-title">📖 Stories</div>
+          <div class="row g-4 mb-5">
+            <div class="col-md-6">
+              <div class="blog-card" data-aos="fade-up">
+                <i class="fas fa-user"></i>
+                <h5>My First Internship</h5>
+                <p>How I landed my first software development internship with self-learning.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="blog-card" data-aos="fade-up">
+                <i class="fas fa-rocket"></i>
+                <h5>App Built in 10 Days</h5>
+                <p>The journey of designing, building, and launching my first app solo.</p>
+              </div>
+            </div>
+          </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h2 class="text-center">🔄 Updates</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="blog-card" data-aos="fade-up">
+                        <img src="assets/images/blogs/update-blog1.jpg" alt="" class="blog-image">
+                        <div class="blog-content">
+                            <i class="fas fa-bolt"></i>
+                            <h5>Swadeshi Tech Fest: VSIET Advances Green Tech</h5>
+                            <p>Last month, VSIET hosted its first-ever Sustainability & Swadeshi Tech Festival, focused
+                                on
+                                eco-friendly tech solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog-card" data-aos="fade-up">
+                        <img src="assets/images/blogs/update-blog2.png" alt="" class="blog-image">
+                        <div class="blog-content">
+                            <i class="fas fa-calendar-check"></i>
+                            <h5>Smart Classrooms Go Live Across VSIET Campus</h5>
+                            <p>All academic blocks at VSIET now feature smartboards, HD projectors, and Wi-Fi networks,
+                                enabling seamless integration of multimedia into daily lectures.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog-card" data-aos="fade-up">
+                        <img src="assets/images/blogs/update-blog3.jpg" alt="" class="blog-image">
+                        <div class="blog-content">
+                            <i class="fas fa-calendar-check"></i>
+                            <h5>New Weekly Workshop</h5>
+                            <p>Join our free ReactJS sessions every Friday starting this month.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="sidebar">
+            <div class="row">
+                <!-- Sidebar -->
+                <h2 class="text-center">📰 News</h2>
+                <div class="col-lg-12">
+                    <div class="image-overlay-full h-100" data-aos="fade-up">
+                        <img src="assets/images/blogs/news-blog2.jpg" alt="Riya Story" class="equal-height-img" style="height: 300px;">
+                        <div class="overlay-content">
+                            <i class="fas fa-user"></i>
+                            <h5>VSIET Faculty Awarded by AICTE</h5>
+                            <p>Dr. Renu Sharma, Head of Computer Science at VSIET, was recently honored with the AICTE National Teaching Excellence Award 2025 for her innovative contribution to hybrid teaching methods.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="sidebar">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="blog-card" data-aos="fade-up">
+                                    <img src="assets/images/blogs/news-blog1.jpeg" alt="" class="blog-image">
+                                    <div class="blog-content">
+                                        <i class="fas fa-globe"></i>
+                                        <h5>VSIT Signs MoU with Tata Technologies</h5>
+                                        <p>VSIET has officially partnered with Tata Technologies</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="blog-card" data-aos="fade-up">
+                                    <img src="assets/images/blogs/news-blog3.webp" alt="" class="blog-image">
+                                    <div class="blog-content">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <h5>Campus Incubator Launches at VSIT</h5>
+                                        <p>The institute inaugurated its first-ever Campus Innovation Incubator.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        .story-horizontal-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .story-horizontal-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .story-horizontal-img {
+            width: 300px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 767.98px) {
+            .story-horizontal-img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+    <div class="container my-5">
+        <div class="sidebar">
+            <h2 class="text-center mb-4">📖 Stories</h2>
+            <div class="row g-4">
+                <!-- Story Card 1 -->
+                <div class="col-12">
+                    <div class="d-flex flex-md-row flex-column align-items-stretch story-horizontal-card"
+                        data-aos="fade-up">
+                        <img src="assets/images/blogs/stories-blog1.jpg" alt="Riya Story" class="story-horizontal-img">
+                        <div class="p-4 d-flex flex-column justify-content-center">
+                            <i class="fas fa-user mb-2 text-danger" style="font-size: 24px;"></i>
+                            <h5>From Freshman to Founder: Riya’s Startup Journey</h5>
+                            <p class="mb-0">Riya, a third-year CSE student, turned her passion into a thriving side
+                                hustle.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story Card 2 -->
+                <div class="col-12">
+                    <div class="d-flex flex-md-row flex-column align-items-stretch story-horizontal-card"
+                        data-aos="fade-up">
+                        <img src="assets/images/blogs/stories-blog2.avif" alt="Green Tech Alumni"
+                            class="story-horizontal-img">
+                        <div class="p-4 d-flex flex-column justify-content-center">
+                            <i class="fas fa-rocket mb-2 text-danger" style="font-size: 24px;"></i>
+                            <h5>Alumni Speak: Green Tech and Beyond</h5>
+                            <p class="mb-0">Three alumni from the 2019 batch now working in sustainability reflected on
+                                their journey.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Story Card 3 -->
+                <div class="col-12">
+                    <div class="d-flex flex-md-row flex-column align-items-stretch story-horizontal-card"
+                        data-aos="fade-up">
+                        <img src="assets/images/blogs/stories-blog3.avif" alt="Green Tech Alumni"
+                            class="story-horizontal-img">
+                        <div class="p-4 d-flex flex-column justify-content-center">
+                            <i class="fas fa-rocket mb-2 text-danger" style="font-size: 24px;"></i>
+                            <h5>From Rural Roots to Google: Priya's Success Story</h5>
+                            <p class="mb-0">Priya Yadav, a VSIET alumna from a small town in UP, overcame financial challenges, studied day and night, and landed a job at Google as a software engineer. Her story continues to inspire many across the campus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style type="text/css">
+        .white {
+            color: #fff !important;
+        }
+
+        .rts-footer-widget h6 {
+            /* text-decoration: underline; */
+            color: #b71a34;
+            margin-bottom: 24px;
+        }
+
+        .un {
+            display: inline-block;
+        }
+
+        .un:after {
+            content: '';
+            width: 0px;
+            height: 2px;
+            display: block;
+            background: #fff;
+            padding-top: 1px;
+            transition: 300ms;
+        }
+
+        .un:hover:after {
+            width: 100%;
+        }
+
+        .social-icons {
+            /*padding:30px;*/
+            /*background-color:#00506b;*/
+            /* text-align: center;*/
+            display: flex;
+        }
+
+        .social-icons a {
+            color: #fff;
+            line-height: 30px;
+            font-size: 24px;
+            margin: 0 5px;
+            text-decoration: none;
+
+        }
+
+        @media only screen and (max-width: 767px) {
+            .social-icons a {
+                color: #890C25;
+                line-height: 30px;
+                font-size: 20px;
+                margin: 0 5px;
+                text-decoration: none;
+
+            }
+
+
+        }
+
+        .social-icons a i {
+            line-height: 30px;
+            font-size: 30px;
+            -webkit-transition: all 200ms ease-in;
+            -webkit-transform: scale(1);
+            -ms-transition: all 200ms ease-in;
+            -ms-transform: scale(1);
+            -moz-transition: all 200ms ease-in;
+            -moz-transform: scale(1);
+            transition: all 200ms ease-in;
+            transform: scale(1);
+        }
+
+        .social-icons a:hover i {
+            box-shadow: 0px 0px 150px #000000;
+            z-index: 2;
+            -webkit-transition: all 200ms ease-in;
+            -webkit-transform: scale(1.5);
+            -ms-transition: all 200ms ease-in;
+            -ms-transform: scale(1.5);
+            -moz-transition: all 200ms ease-in;
+            -moz-transform: scale(1.5);
+            transition: all 200ms ease-in;
+            transform: scale(1.5);
+        }
+    </style>
+
+
+
+    <!-- footer start -->
+    <footer class="rts-footer v_2 pt--50 pb--50">
+        <div class="container">
+            <div class="row gy-5 gy-lg-0">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="rts-footer-widget ">
+                        <!-- <a href="#" class="d-block rts-footer-logo mb--40">
+                            <img src="assets/images/logo/vsit_sq_png.png" alt="VSIET">
+                        </a> -->
+                        <h6 class=" un">Get in touch</h6>
+                        <p style="color: #fff; font-weight:bolder; margin-bottom: 1px;    font-size: 18px;">
+                            Vikram
+                            Sarabhai Institute of Engineering & Technology (VSIET)</p>
+                        <!-- <p style="color: #fff;">VSIET stands out as the best engineering college in Greater Noida, shaping the future generation of engineers and innovators and connecting them to the required industry</p> -->
+                        <div class="rts-contact-link" style="color: #fff;">
+                            <a href="https://maps.app.goo.gl/EPYsGHyAQHo81Fwm8" target="_blank" rel="noopener"><i
+                                    class="fa-sharp fa-light fa-location-dot"></i> Plot No.-
+                                6B/1, Knowledge Park-2,
+                                Greater Noida, G.B.Nagar, UP-201306 </a>
+                            <a href="callto:+91-9311857965"><i class="fa-thin fa-phone"></i>
+                                +91-9311857965</a>
+
+                            <a href="mailto:info@vsiet.com"><i class="fa-thin fa-envelope"></i>
+                                info@vsiet.com</a>
+                            <!-- partial:index.partial.html -->
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/vsietgrnoida" target="_blank" rel="noopener"
+                                    title="facebook">
+                                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://x.com/vsiet_grnoida" target="_blank" rel="noopener" title="twitter">
+                                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                                </a>
+                                <a href="#" title="instagram">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                                <a href="#" title="youtube">
+                                    <i class="fa-brands fa-square-x-twitter" aria-hidden="true"></i>
+                                </a>
+
+                                <a href="#" title="pinterest">
+                                    <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+                                </a>
+
+                            </div>
+                            <!-- partial -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="rts-footer-widget ">
+                        <h6 class="un">About</h6>
+                        <div class="rts-footer-menu">
+                            <ul style="color:#fff !important">
+                                <li style="margin-top: 0px !important; " class="white"><a
+                                        href="https://vocationalservices.in/vsiet_web/about_us">About
+                                        Us</a></li>
+                                <li class="white"><a href="https://vocationalservices.in/vsiet_web/about_us">Vision
+                                        & Mission</a></li>
+                                <li class="white"><a
+                                        href="https://vocationalservices.in/vsiet_web/program-overview">Programme
+                                        Highlights</a></li>
+                                <li class="white"><a href="https://vocationalservices.in/vsiet_web/faculty">Faculty
+                                        & Research</a></li>
+
+                                <li class="white"><a
+                                        href="https://vocationalservices.in/vsiet_web/assets/files/VSIET_EOA_Report_2025-2026.pdf"
+                                        target="_blank">AICTE Approval</a></li>
+                                <li class="white"><a
+                                        href="https://vocationalservices.in/vsiet_web/contact_us">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-4">
+                    <div class="rts-footer-widget ml--30">
+                        <h6 class="un">Academic</h6>
+                        <div class="rts-footer-menu">
+                            <ul>
+                                <li style="margin-top: 0px !important; " class="white"><a href="#">Academic
+                                        Roadmap
+                                    </a></li>
+                                <li class="white"><a
+                                        href="https://vocationalservices.in/vsiet_web/pedagogy">Pedagogy</a></li>
+                                <li class="white"><a
+                                        href="https://vocationalservices.in/vsiet_web/course-curriculum-btech">Curriculum</a>
+                                </li>
+                                <li class="white"><a
+                                        href="https://vocationalservices.in/vsiet_web/fee-scholarships">Program
+                                        Fee</a></li>
+                                <li class="white"><a
+                                        href="https://vocationalservices.in/vsiet_web/fee-scholarships">Scholarship</a>
+                                </li>
+                                <li class="white"><a
+                                        href="https://vocationalservices.in/vsiet_web/eligibility-admission-process">Admission</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-4">
+                    <div class="rts-footer-widget ml--30">
+                        <h6 class="un">Important Links</h6>
+                        <div class="rts-footer-menu">
+                            <ul>
+                                <li style="margin-top: 0px !important; " class="white"><a href="#">Accreditations &
+                                        Affiliations </a></li>
+
+                                <li class="white"><a href="https://vocationalservices.in/vsiet_web/campus">Campus
+                                        Tour</a></li>
+                                <li class="white"><a href="https://vocationalservices.in/vsiet_web/faq">FAQ</a></li>
+                                <li class="white"><a href="#">Downloads</a></li>
+                                <li class="white"><a href="#">Privacy Policy</a></li>
+                                <li class="white"><a
+                                        href="https://vocationalservices.in/vsiet_web/assets/files/VSIET_EOA_Report_2025-2026.pdf"
+                                        target="_blank">EOA Report</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <div class="rts-footer-copy-right v_1">
+        <div class="container">
+            <div class="row">
+                <div class="rt-center">
+                    <p class="--p-xs white">Copyright &copy; 2025 All Rights Reserved by <a
+                            href="https://innowebsolution.com/" target="_blank" rel="noopener">Innoweb
+                            Solutions</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer end -->
+    <!-- offcanvase menu -->
+    <!-- header style two -->
+    <div id="side-bar" class="side-bar">
+        <button class="close-icon-menu" aria-label="Close menu"><i class="far fa-times"></i></button>
+        <!-- inner menu area desktop start -->
+        <div class="inner-main-wrapper-desk">
+            <div class="thumbnail">
+                <img src="assets/images/logo/vsit_sq_png.png" alt="VSIET">
+            </div>
+            <div class="inner-content">
+                <p class="disc">
+                    The Vikram Sarabhai Institute of Engineering & Technology (VSIET) is more than just a
+                    college—it
+                    is a transformative educational hub known for innovation, excellence, and impact.
+                </p>
+                <!-- offcanvase banner -->
+                <div class="offcanvase__banner mt--50">
+                    <div class="offcanvase__banner--content">
+                        <img src="assets/images/program/mba_about.jpg" alt="offcanvase">
+                        <a href="#" class="rts-theme-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="offcanvase__info">
+                    <div class="offcanvase__info--content">
+                        <a href="callto:+91-9311857965"><i class="fa-thin fa-phone"></i> +91-9311857965</a>
+                        <a href="https://maps.app.goo.gl/EPYsGHyAQHo81Fwm8" target="_blank" rel="noopener"><i
+                                class="fa-sharp fa-light fa-location-dot"></i> Plot No.- 6B/1,
+                            Knowledge Park-2,
+                            Greater Noida, G.B.Nagar, UP-201306 </a>
+                        <div class="offcanvase__info--content--social">
+                            <p class="title">Follow Us:</p>
+                            <div class="social__links" style="color:#000 !important; ">
+                                <a href="https://www.facebook.com/vsietgrnoida" target="_blank" rel="noopener"
+                                    title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="https://x.com/vsiet_grnoida" target="_blank" rel="noopener" title="twitter"><i
+                                        class="fa-brands fa-x-twitter"></i></a>
+                                <a href="https://www.youtube.com/@vsiet_grnoida" target="_blank" rel="noopener"
+                                    title="youtube"><i class="fa-brands fa-youtube"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- header style two End -->
+
+    <div class="search-input-area">
+        <div class="container">
+            <div class="search-input-inner">
+                <div class="input-div">
+                    <input class="search-input autocomplete ui-autocomplete-input" type="text"
+                        placeholder="Search by keyword or #" autocomplete="off">
+                    <button aria-label="Search"><i class="far fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <!-- jquery js -->
+    <script src="assets/js/vendor/jquery.min.js"></script>
+    <!-- bootstrap 5.0.2 -->
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <!-- jquery ui js -->
+    <script src="assets/js/vendor/jquery-ui.js"></script>
+    <!-- wow js -->
+    <script src="assets/js/vendor/waw.js"></script>
+    <!-- mobile menu -->
+    <script src="assets/js/vendor/metismenu.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/vendor/magnifying-popup.js"></script>
+    <!-- swiper JS 10.2.0 -->
+    <script src="assets/js/plugins/swiper.js"></script>
+    <!-- counterup -->
+    <script src="assets/js/plugins/counterup.js"></script>
+    <script src="assets/js/vendor/waypoint.js"></script>
+    <!-- isotop mesonary -->
+    <script src="assets/js/plugins/isotop.js"></script>
+    <script src="assets/js/plugins/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/plugins/sticky-sidebar.js"></script>
+    <script src="assets/js/plugins/resize-sensor.js"></script>
+    <script src="assets/js/plugins/twinmax.js"></script>
+    <!-- dymanic Contact Form -->
+    <script src="assets/js/plugins/contact.form.js"></script>
+    <script src="assets/js/plugins/nice-select.min.js"></script>
+    <!-- main Js -->
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+
+</html>

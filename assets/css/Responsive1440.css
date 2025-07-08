@@ -1,0 +1,36 @@
+@media screen and (min-width: 1751px) {
+    .container {
+        max-width: 2000px;
+        margin: 0 auto;
+    }
+
+    .navigation__menu ul {
+        gap: 100px;
+    }
+
+    .rts__section--wrapper.v__2 {
+        flex-direction: column;
+        align-items: self-start;
+        max-width: 700px;
+    }
+
+    .g-5 .col-lg-6 {
+        display: flex;
+        justify-content: center;
+    }
+    p{
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1750px) {
+    .navigation__menu ul {
+        gap: 60px;
+    }
+    .container {
+        max-width: 1500px;
+    }
+    p{
+        text-align: center;
+    }
+}

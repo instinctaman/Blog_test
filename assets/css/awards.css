@@ -1,0 +1,167 @@
+.slide-container {
+/*  max-width: 1120px;*/
+  width: 100%;
+  
+  padding: 40px 0;
+}
+
+.slide-content {
+  margin: 0 40px;
+  overflow: hidden;
+  border-radius: 25px;
+  height: fit-content;
+}
+
+.card {
+  border-radius: 25px;
+  background-color: #FFF;
+}
+
+.image-content,
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+
+.image-content {
+  position: relative;
+  row-gap: 5px;
+  padding: 5px 0;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #890C25;
+  border-radius: 25px 25px 0 25px;
+  display: block !important;
+  z-index: -1;
+}
+
+.overlay::before,
+.overlay::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: #890C25;
+  
+}
+
+.overlay::after {
+  border-radius: 0 25px 0 0;
+  background-color: #FFF;
+}
+
+.card-image {
+  /*position: relative;*/
+  /*height: 150px;*/
+  /*width: 150px;*/
+  /*border-radius: 50%;*/
+  /*background: #FFF;*/
+  /*padding: 3px;*/
+      position: relative;
+    height: 189px;
+    width: 285px;
+    border-radius: 10%;
+    background: #FFF;
+    padding: 2px;
+}
+
+.card-image .card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10%;
+  border: 4px solid #890C25;
+}
+
+.name {
+  font-size: 20px !important;
+  font-weight: 500!important;
+  color: #333;
+  padding:25px 0 0 0!important;
+}
+
+.description {
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+
+.button {
+  border: none;
+  font-size: 16px!important;
+  color: #FFF;
+  padding: 8px 16px!important;
+  background-color: #00062B;
+  border-radius: 6px!important;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #265DF2;
+}
+
+.swiper-navBtn {
+  color: #6E93f7;
+  transition: color 0.3s ease;
+}
+
+.swiper-navBtn:hover {
+  color: #00062B;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  font-size: 35px;
+}
+
+.swiper-button-next {
+  right: 0;
+}
+
+.swiper-button-prev {
+  left: 0;
+}
+
+.swiper-pagination-bullet {
+  background-color: #6E93f7;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #890C25 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .slide-content {
+margin: 0 10px;
+  }
+
+  .swiper-navBtn {
+display: none;
+  }
+}
+
+
+.campus__single--item--title0 {
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-bottom: 0;
+    
+}
+.rts__research--single--meta--title1 a {
+   
+    color: #000 !important;
+}
